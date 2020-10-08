@@ -1,20 +1,21 @@
 import React from 'react';
 import '../assets/styles/components/Header.scss';
+import logo from '../assets/static/logo-platzi-video-BW2.png';
 
 const Header = () =>(
-     <header className="header">
-         <img src="" alt="" className="header_img"/>
-         <div className="header_menu">
-             <div className="header_menu--profile">
-                 <img src="" alt=""/>
-                 <p>Perfil</p>
-             </div>
-             <ul>
-                 <li><a href="/">Cuenta</a></li>
-                 <li><a href="/">Cerrar sesion</a></li>
-             </ul>
-         </div>
-     </header>
+    <header className="header">
+    <img className="header__img" src={logo} alt="Platzi Video" />
+    <div className="header__menu">
+      <div className="header__menu--profile">
+        <img src="../assets/user-icon.png" alt=""/>
+        <p>Perfil</p>
+      </div>
+      <ul>
+        <li><a href="/">Cuenta</a></li>
+        <li><a href="/">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </header>
 );
 
 export default Header;
