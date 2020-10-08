@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/styles/components/Search.scss';
+import '../assets/styles/components/Buscador.scss';
 
 const Search = () => (
     <section className="main">
