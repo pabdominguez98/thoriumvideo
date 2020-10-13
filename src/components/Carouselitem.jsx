@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/styles/components/Carouselitem.scss';
 import playIcon from '../assets/static/play-icon.png';
+import propTypes from 'prop-types';
 import plusIcon from '../assets/static/plus-icon.png';
 
 const Carouselitem = ({ cover, title, year, contentRating, duration }) => (
@@ -20,5 +21,13 @@ const Carouselitem = ({ cover, title, year, contentRating, duration }) => (
     </div>
 
 );
+
+Carouselitem.propTypes = {
+    cover: propTypes.string,
+    title: propTypes.string,
+    year: propTypes.number,
+    contentRating: propTypes.string,
+    duration: propTypes.number,
+};
 
 export default Carouselitem;

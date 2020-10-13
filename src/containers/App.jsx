@@ -6,22 +6,16 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import Carouselitem from '../components/Carouselitem';
 import Footer from '../components/Footer';
-
+import useInitialState from '../hooks/useinitialState';
+ const API = 'http://localhost:3000/initalState';
 
 const App = () => {
-   const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
-
-   useEffect(() => {
-      fetch('http://localhost:3000/initalState') // aca va la direccion de la api que nos queremos comunicar
-         .then(res => res.json())
-         .then(data => setVideos(data));
-   }, []);
-
-   return (
+   const initalState = useInitialState(API);
+   return  initalState.length === 0 ? <h1>Cargando...</h1> :(
       <div className="App">
          <Header />
          <Search />
-         {videos.mylist.length > 0 &&
+         {initalState.mylist.length > 0 &&
             <Categories title="Mi lista">
                <Carousel>
                   <Carouselitem />
@@ -30,7 +24,7 @@ const App = () => {
          }
          <Categories title="Tendencias">
             <Carousel>
-               {videos.trends.map(item =>
+               {initalState.trends.map(item =>
                   <Carouselitem key={item.id} {...item}/>
                )}
             </Carousel>
